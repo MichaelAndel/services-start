@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LoggingService, AccountsService]
+ // providers: [LoggingService]
 })
 export class AccountComponent {
   @Input() account: {name: string, status: string};
@@ -16,7 +16,7 @@ export class AccountComponent {
 
 
   onSetTo(status: string) {
-    this.accountsService.updateStatus({id: this.id, status: status})
-    this.loggingService.logStatusChange(status);
+    this.accountsService.updateStatus(this.id, status)
+   // this.loggingService.logStatusChange(status);
   }
 }
